@@ -1,0 +1,32 @@
+---
+title: "Breast Cancer Classification Problem"
+author: "Billy Otieno"
+date: "January 26, 2019"
+output: html_document
+---
+
+#### Breast Cancer Classification
+
+Analyzing the 5 top rows of the data.
+```{r}
+cancer_df <- read.csv('wbc_cancer_data.csv')
+head(cancer_df)
+```
+
+Lets look at all the columns in the dataset
+```{r}
+colnames(cancer_df)
+print(length(colnames(cancer_df))) # Total number of columns
+```
+The dependent variable y = Diagnosis
+```{r}
+target <- cancer_df$Diagnosis
+head(target)
+```
+Remove Patient ID from the predictors X
+```{r}
+cancer_df$ID.number = NULL
+cancer_df$Diagnosis = NULL
+colnames(cancer_df)
+```
+
